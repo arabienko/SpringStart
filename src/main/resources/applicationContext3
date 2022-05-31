@@ -8,17 +8,15 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:myApp.properties"/>
+    <bean id="myPerson" class="by.arabienko.spring.springIntrodution.bean.Person">
+    <property name="name" value="${person.name}"/>
+    <property name="age" value="${person.age}"/>
+</bean>
 
-<bean id="myPet"
-      class="by.arabienko.spring.springIntrodution.bean.impl.DogImpl">
-</bean>
-    <bean id="myPerson"
-          class="by.arabienko.spring.springIntrodution.bean.Person" >
-<!--
-        <constructor-arg ref="myPet"/>
--->
-        <property name="pet" ref="myPet"/>
-        <property name="name" value="${person.name}"/>
-        <property name="age" value="${person.age}"/>
-</bean>
+    <bean id="myPet"
+          class="by.arabienko.spring.springIntrodution.bean.impl.RatImpl"
+    init-method="init"
+    destroy-method="destroy"
+    scope="prototype">
+    </bean>
 </beans>

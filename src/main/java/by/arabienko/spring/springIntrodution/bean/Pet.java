@@ -1,5 +1,5 @@
 package by.arabienko.spring.springIntrodution.bean;
 
-public interface Pat {
-    public void say();
+public interface Pet {
+    void say();
 }
