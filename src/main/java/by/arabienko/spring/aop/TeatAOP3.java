@@ -7,8 +7,9 @@ public class TeatAOP3 {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfigAOP.class);
         MainLibrary library = context.getBean("libraryBean", MainLibrary.class);
         library.getBook();
-        library.returnMagazine();
-        library.addMagazine();
+        library.getMagazine();
+//        library.returnMagazine();
+//        library.addMagazine();
         context.close();
     }
 }
