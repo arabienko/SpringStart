@@ -25,9 +25,14 @@ public class MainLibrary extends AbstractLibrary {
         System.out.println("_______________________");
     }
 
-    public void returnBook() {
+    /*public void returnBook() {
         System.out.println("Return book...");
         System.out.println("_______________________");
+    }*/
+    public String returnBook() {
+        int i = 10/0;
+        System.out.println("Return book...");
+        return "Book ...";
     }
 
     public void returnMagazine() {
