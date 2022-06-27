@@ -7,22 +7,19 @@ import org.hibernate.cfg.Configuration;
 
 public class Test1 {
     public static void main(String[] args) {
-        SessionFactory factory = new Configuration()
+        try (SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .buildSessionFactory();
-        try {
+                .buildSessionFactory()) {
             Session session =
                     factory.getCurrentSession();
             Employee employee =
-                    new Employee("Tanya", "Arabiyenka", "DSG", 500);
+                    new Employee("Victor", "Arabiyenka", "IT", 800);
             session.beginTransaction();
             session.save(employee);
             //session.persist(employee);
-            session.getTransaction().commit();
-        } finally {
-            factory.close();
+            session.getTransaction().commit();//closed session
+            System.out.println("Creation employee is done success...");
         }
-
     }
 }
