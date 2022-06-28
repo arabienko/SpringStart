@@ -7,14 +7,12 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
-public class Test4 {
+public class Test4_createQuery {
     public static void main(String[] args) {
-        SessionFactory sessionFactory =
-                new Configuration()
-                        .configure("hibernate.cfg.xml")
-                        .addAnnotatedClass(Employee.class)
-                        .buildSessionFactory();
-        try {
+        try (SessionFactory sessionFactory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Employee.class)
+                .buildSessionFactory()) {
             Session session = sessionFactory.getCurrentSession();
             Employee employee = new Employee("Tetris", "Tetris", "Tetris", 10);
             session.beginTransaction();
@@ -28,8 +26,6 @@ public class Test4 {
 
             session.getTransaction().commit();
             System.out.println("DONE!!!");
-        } finally {
-            sessionFactory.close();
         }
     }
 }
