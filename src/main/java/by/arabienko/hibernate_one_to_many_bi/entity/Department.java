@@ -48,7 +48,7 @@ public class Department {
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "department",
-            fetch = FetchType.EAGER)
+            fetch = FetchType.LAZY)
     private List<Employees> employeesList;
 
     public Department() {
